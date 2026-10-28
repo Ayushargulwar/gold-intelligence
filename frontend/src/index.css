@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    /* Institutional Quantitative Research Terminal Palette */
+    --navy-primary: #14243A;
+    --blue-accent: #245BDB;
+    --blue-hover: #1D49AF;
+    --blue-subtle: #EEF3FD;
+    
+    /* Backgrounds & Surfaces */
+    --bg-canvas: #F4F6F9;
+    --bg-surface: #FFFFFF;
+    --bg-surface-elevated: #F8FAFC;
+    --bg-surface-hover: #F1F5F9;
+
+    /* Borders & Separators */
+    --border-subtle: #EDF1F7;
+    --border-default: #DCE2EA;
+    --border-strong: #B4C0D0;
+
+    /* Institutional Typography */
+    --text-primary: #172538;
+    --text-secondary: #687587;
+    --text-muted: #8E9BAE;
+
+    /* Financial Indicators */
+    --status-positive: #13834A;
+    --status-negative: #D64550;
+    --status-warning: #D97706;
+  }
+
+  body {
+    background-color: var(--bg-canvas);
+    color: var(--text-primary);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Monospace for financial data, coordinates, dates and contract symbols */
+  .font-mono {
+    font-family: "IBM Plex Mono", SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #F4F6F9;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #CBD5E1;
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #94A3B8;
+  }
+}

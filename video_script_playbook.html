@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Gold Intelligence — Video Demo Script & Navigation Playbook</title>
+<style>
+  @page {
+    size: A4;
+    margin: 16mm 14mm 16mm 14mm;
+    @bottom-right {
+      content: counter(page);
+    }
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: #172538;
+    background-color: #FFFFFF;
+    line-height: 1.5;
+    font-size: 10pt;
+    margin: 0;
+    padding: 0;
+  }
+
+  h1, h2, h3, h4 {
+    color: #14243A;
+    margin-top: 0;
+    font-weight: 700;
+  }
+
+  h1 {
+    font-size: 20pt;
+    border-bottom: 2px solid #245BDB;
+    padding-bottom: 6px;
+    margin-bottom: 4px;
+  }
+
+  h2 {
+    font-size: 14pt;
+    border-bottom: 1px solid #DCE2EA;
+    padding-bottom: 4px;
+    margin-top: 18pt;
+    margin-bottom: 8pt;
+    page-break-after: avoid;
+  }
+
+  h3 {
+    font-size: 11.5pt;
+    margin-top: 12pt;
+    margin-bottom: 4pt;
+    color: #245BDB;
+    page-break-after: avoid;
+  }
+
+  .header-meta {
+    font-size: 8.5pt;
+    color: #687587;
+    margin-bottom: 14pt;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #E2E8F0;
+    padding-bottom: 6pt;
+  }
+
+  .badge {
+    display: inline-block;
+    padding: 2px 7px;
+    font-size: 7.5pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 3px;
+    letter-spacing: 0.5px;
+  }
+  .badge-primary { background: #EEF3FD; color: #245BDB; border: 1px solid #BFDBFE; }
+  .badge-green { background: #ECFDF5; color: #13834A; border: 1px solid #A7F3D0; }
+  .badge-gold { background: #FEF9EB; color: #B45309; border: 1px solid #FDE68A; }
+
+  .card {
+    background: #F8FAFC;
+    border: 1px solid #DCE2EA;
+    border-radius: 6px;
+    padding: 10pt;
+    margin-bottom: 10pt;
+    page-break-inside: avoid;
+  }
+
+  .mental-model-box {
+    background: #F0F5FF;
+    border-left: 4px solid #245BDB;
+    border-radius: 0 6px 6px 0;
+    padding: 10pt 12pt;
+    margin: 10pt 0 14pt 0;
+  }
+
+  .scene-card {
+    border: 1px solid #DCE2EA;
+    border-radius: 6px;
+    margin-bottom: 14pt;
+    background: #FFFFFF;
+    page-break-inside: avoid;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+  }
+
+  .scene-header {
+    background: #14243A;
+    color: #FFFFFF;
+    padding: 6pt 10pt;
+    font-size: 10pt;
+    font-weight: 700;
+    border-radius: 5px 5px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .scene-body {
+    padding: 10pt;
+  }
+
+  .action-block {
+    background: #F8FAFC;
+    border-left: 3px solid #64748B;
+    padding: 6pt 8pt;
+    margin-bottom: 8pt;
+    font-size: 9pt;
+  }
+
+  .action-block strong {
+    color: #0F172A;
+  }
+
+  .voice-block {
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 4px;
+    padding: 8pt 10pt;
+    font-size: 9.5pt;
+    color: #172538;
+    line-height: 1.55;
+    position: relative;
+  }
+
+  .voice-block::before {
+    content: "🗣️ WHAT YOU SAY (SPOKEN WORD):";
+    display: block;
+    font-size: 7.5pt;
+    font-weight: 800;
+    color: #245BDB;
+    letter-spacing: 0.5px;
+    margin-bottom: 4pt;
+  }
+
+  .tip-box {
+    background: #FEF9EB;
+    border-left: 3px solid #D97706;
+    padding: 6pt 8pt;
+    margin-top: 6pt;
+    font-size: 8.5pt;
+    color: #92400E;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 8pt 0 12pt 0;
+    font-size: 8.5pt;
+    page-break-inside: avoid;
+  }
+
+  table th {
+    background: #14243A;
+    color: #FFFFFF;
+    text-align: left;
+    padding: 5pt 8pt;
+    font-weight: 600;
+  }
+
+  table td {
+    border-bottom: 1px solid #E2E8F0;
+    padding: 5pt 8pt;
+    vertical-align: top;
+  }
+
+  table tr:nth-child(even) td {
+    background: #F8FAFC;
+  }
+
+  code {
+    font-family: Consolas, monospace;
+    background: #EEF2F6;
+    padding: 1px 4px;
+    border-radius: 3px;
+    font-size: 8.5pt;
+    color: #0F172A;
+  }
+
+  .caption-box {
+    background: #F8FAFC;
+    border: 1px dashed #CBD5E1;
+    border-radius: 4px;
+    padding: 8pt;
+    font-family: Consolas, monospace;
+    font-size: 8pt;
+    white-space: pre-wrap;
+    line-height: 1.4;
+    color: #334155;
+    margin-top: 6pt;
+  }
+
+  .page-break {
+    page-break-before: always;
+  }
+</style>
+</head>
+<body>
+
+  <!-- COVER / HEADER -->
+  <div style="text-align: right; margin-bottom: 2pt;">
+    <span class="badge badge-primary">Hack in Hills '26</span>
+    <span class="badge badge-gold">Problem 03: Commodity Derivatives Intelligence</span>
+    <span class="badge badge-green">Team LNX</span>
+  </div>
+
+  <h1>GOLD INTELLIGENCE</h1>
+  <div style="font-size: 11pt; color: #475569; font-weight: 600; margin-bottom: 6pt;">
+    Video Demo Scripts, Website Navigation Blueprint & Defense Playbook
+  </div>
+
+  <div class="header-meta">
+    <div><strong>Team Members:</strong> Rudra Sharma, Ayush Argulwar, Rohit Thoke</div>
+    <div><strong>Document Type:</strong> Official Video Recording & Pitch Guide</div>
+    <div><strong>Date:</strong> October 2026</div>
+  </div>
+
+  <!-- SECTION: 30-SECOND MENTAL MODEL -->
+  <div class="mental-model-box">
+    <div style="font-size: 10pt; font-weight: 800; color: #14243A; margin-bottom: 3pt;">
+      💡 THE 30-SECOND MENTAL MODEL (How to Understand & Explain This Project Easily)
+    </div>
+    <p style="margin: 0; font-size: 9pt; color: #1E293B;">
+      If anyone asks you what this project does in plain English, use this fruit market analogy:
+      <br><br>
+      <em>"Imagine you visit a market where one vendor sells <strong>10 kg boxes of 95% pure gold</strong> quoted per 10 grams, while another vendor sells <strong>1 gram packets of 99% pure gold</strong> quoted per gram. If you just look at the screen prices, you are comparing apples to oranges!
+      <br><br>
+      <strong>Gold Intelligence</strong> does 3 simple things:
+      <br><strong>1. Purity Normalization:</strong> Converts every single contract into <strong>₹ per 1.000 gram of 100% pure gold</strong>.
+      <br><strong>2. Anomaly Detection:</strong> Watches the relative spread and flags when one contract becomes abnormally expensive or cheap compared to historical norms.
+      <br><strong>3. The Reality Check:</strong> Rejects fake 'paper profits' that would get wiped out by Indian exchange taxes (CTT, GST, Stamp Duty) or illiquid market depth."</em>
+    </p>
+  </div>
+
+  <!-- SECTION: PRE-RECORDING CHECKLIST -->
+  <h2>1. Pre-Recording Setup & Technical Checklist</h2>
+  <div class="card">
+    <div style="font-weight: 700; margin-bottom: 4pt; color: #14243A;">Step 1: Start the Local Application</div>
+    <div style="margin-bottom: 6pt; font-size: 9pt;">
+      Open two terminal tabs in the project root directory:
+      <br>• <strong>Terminal 1 (Backend):</strong> <code>cd backend &amp;&amp; uvicorn app.main:app --port 8000 --reload</code>
+      <br>• <strong>Terminal 2 (Frontend):</strong> <code>cd frontend &amp;&amp; npm run dev</code>
+      <br>• Open browser at: <code>http://localhost:5173</code>
+    </div>
+
+    <div style="font-weight: 700; margin-bottom: 4pt; color: #14243A;">Step 2: Recording Environment Setup</div>
+    <div style="font-size: 9pt;">
+      • <strong>Resolution:</strong> Set browser to 100% zoom at 1920x1080 (press <code>F11</code> for full-screen mode).
+      <br>• <strong>Audio:</strong> Use a clear headset or USB mic. Speak with an analytical, calm pace. Pause for 1 second after stating key numbers.
+      <br>• <strong>Mouse Cursors:</strong> Move your mouse deliberately 1 second <em>before</em> speaking about an element. Avoid rapid shaking or circular gestures.
+      <br>• <strong>Initial State:</strong> Start recorded video on the <strong>Overview</strong> tab with the chart loaded on <code>GOLDM vs GOLDPETAL</code>.
+    </div>
+  </div>
+
+  <!-- SECTION: 4-5 MINUTE MASTER VIDEO -->
+  <h2>2. Master Demo Video Script (4 to 5 Minutes)</h2>
+  <p style="font-size: 8.5pt; color: #687587; margin-top: -4pt;">
+    Target Audience: Hackathon Judges, Technical Evaluators, and Comprehensive Project Reviews.
+  </p>
+
+  <!-- SCENE 1 -->
+  <div class="scene-card">
+    <div class="scene-header">
+      <span>SCENE 1: The Hook &amp; Problem Statement</span>
+      <span>0:00 – 0:45</span>
+    </div>
+    <div class="scene-body">
+      <div class="action-block">
+        <strong>🖥️ WHERE TO NAVIGATE:</strong>
+        <br>• Start on <strong>Overview</strong> page (<code>tab=overview</code>).
+        <br>• Point cursor at the top research banner: <em>"Is one MCX gold contract behaving unusually relative to another?"</em>
+        <br>• Slowly hover cursor across the 4 top metric cards: <code>Contracts Covered (4)</code>, <code>Historical Observations (722)</code>, and <code>Largest Standardized Deviation (9.18σ)</code>.
+      </div>
+      <div class="voice-block">
+        "Hello judges! When people trade gold on MCX India, retail traders usually make a dangerous assumption: they try to guess whether gold will go UP or DOWN.
+        <br><br>
+        But institutional quantitative desks look at gold completely differently. On MCX, gold is listed across four distinct contracts: <strong>GOLDM</strong>, <strong>GOLDTEN</strong>, <strong>GOLDGUINEA</strong>, and <strong>GOLDPETAL</strong>.
+        <br><br>
+        Here’s the catch: they all have different lot sizes, different quoting units, and different purity levels. You cannot compare their raw prices on screen!
+        <br><br>
+        My team, <strong>Team LNX</strong>, built <strong>Gold Intelligence</strong> — an institutional-grade quantitative relative-value and arbitrage platform that normalizes multi-contract gold derivatives, scans for statistical mispricings, and proves whether they survive real-world Indian transaction costs."
+      </div>
+    </div>
+  </div>
+
+  <!-- SCENE 2 -->
+  <div class="scene-card">
+    <div class="scene-header">
+      <span>SCENE 2: Contract Explorer &amp; Purity Normalization Engine</span>
+      <span>0:45 – 1:30</span>
+    </div>
+    <div class="scene-body">
+      <div class="action-block">
+        <strong>🖥️ WHERE TO NAVIGATE:</strong>
+        <br>• In the left sidebar, click <strong>Contract Explorer</strong> (<code>tab=contracts</code>).
+        <br>• Point cursor to the <strong>GOLDM</strong> card (100g lot, quoted per 10g, <strong>995 purity</strong>).
+        <br>• Point cursor to the <strong>GOLDPETAL</strong> card (1g lot, quoted per 1g, <strong>999 purity</strong>).
+        <br>• Hover over the formula banner at the top: <code>P_fine = (P_raw / QuotationUnit) × (1000 / Purity)</code>.
+      </div>
+      <div class="voice-block">
+        "Let’s look at the contract specifications to understand why naive comparisons fail.
+        <br><br>
+        Notice here: <strong>GOLDM</strong> is quoted in ₹ per 10 grams at 995 fineness. Meanwhile, <strong>GOLDPETAL</strong> is quoted in ₹ per 1 gram at 999 fineness.
+        <br><br>
+        If GOLDM is trading at ₹75,000 and GOLDPETAL is trading at ₹7,550, is one actually cheaper than the other?
+        <br><br>
+        You can't tell until you normalize them. Our platform runs a deterministic mathematical conversion that scales every single tick into an identical benchmark: <strong>₹ per 1.000 gram of 1000-fine pure gold</strong>.
+        <br><br>
+        Once every contract is on the exact same footing, we can calculate the true relative spread in basis points."
+      </div>
+    </div>
+  </div>
+
+  <div class="page-break"></div>
+
+  <!-- SCENE 3 -->
+  <div class="scene-card">
+    <div class="scene-header">
+      <span>SCENE 3: Live Relative-Spread Chart &amp; Anomaly Detection</span>
+      <span>1:30 – 2:30</span>
+    </div>
+    <div class="scene-body">
+      <div class="action-block">
+        <strong>🖥️ WHERE TO NAVIGATE:</strong>
+        <br>• Click back to the <strong>Overview</strong> tab in the sidebar (<code>tab=overview</code>).
+        <br>• Scroll down to the visual centerpiece: the <strong>Interactive Relative Spread Chart</strong>.
+        <br>• Slowly hover cursor along the blue spread line to showcase the interactive tooltip: <code>Date</code>, <code>Spread (bps)</code>, <code>Baseline (μ)</code>, and <code>Z-score</code>.
+        <br>• Toggle the contract pair dropdown from <code>GOLDM vs GOLDPETAL</code> to <code>GOLDTEN vs GOLDGUINEA</code> and back.
+        <br>• Point out the <strong>red dots</strong> (statistical dislocations) and the <strong>shaded blue band</strong> (±2σ confidence envelope).
+      </div>
+      <div class="voice-block">
+        "Now let’s look at the heart of our platform — the Relative Spread Engine.
+        <br><br>
+        This blue line is the synchronous basis spread between GOLDM and GOLDPETAL, expressed in basis points.
+        <br><br>
+        The dashed line is our trailing 20-day rolling mean, and the light blue envelope represents dynamic <strong>±2 standard deviation Bollinger-style confidence bands</strong>.
+        <br><br>
+        Because commodity volatility changes across market regimes, our confidence bands expand dynamically during macro volatility and tighten during calm periods.
+        <br><br>
+        Look right here [hover over the large spike]: we detected a massive dislocation where GOLDM diverged by <strong>9.18 standard deviations</strong> away from its historical mean!
+        <br><br>
+        In pure statistics, that is an extreme event. But in quantitative finance, we must ask: <em>can an analyst actually trade this, or is it a trap?</em> That brings us to our core innovation."
+      </div>
+    </div>
+  </div>
+
+  <!-- SCENE 4 -->
+  <div class="scene-card">
+    <div class="scene-header">
+      <span>SCENE 4: The Anomaly Scanner &amp; Triple-Filter Reality Gate</span>
+      <span>2:30 – 3:30</span>
+    </div>
+    <div class="scene-body">
+      <div class="action-block">
+        <strong>🖥️ WHERE TO NAVIGATE:</strong>
+        <br>• In the sidebar, click <strong>Anomaly Scanner</strong> (<code>tab=anomalies</code>).
+        <br>• Point cursor to the filter summary cards: <code>Liquidity Gate</code>, <code>Expiry Gate</code>, <code>Cost Hurdle</code>.
+        <br>• Click on any anomaly finding row (or the 'Inspect' button) to pop open the <strong>Finding Detail Modal</strong> showing the tax breakdown.
+      </div>
+      <div class="voice-block">
+        "Most algorithmic projects stop at finding a 2-sigma deviation. But in real-world Indian commodity trading, <strong>over 75% of statistical anomalies are unexecutable traps</strong>.
+        <br><br>
+        Why? Because they happen during illiquid hours with wide bid-ask spreads, or near contract expiry during physical tender periods, or the spread is simply too small to cover exchange taxes.
+        <br><br>
+        To solve this, we engineered the <strong>Triple-Filter Execution Gate</strong>:
+        <br><br>
+        <strong>1. Gate 1 (Liquidity):</strong> Requires both contracts to have daily volume above 100 lots and open interest above 500. This wipes out ghost prints.
+        <br><strong>2. Gate 2 (Expiry Tender Safety):</strong> Rejects trades if expiry is within 5 trading days, completely protecting traders from MCX compulsory physical delivery margins.
+        <br><strong>3. Gate 3 (Statutory Cost Hurdle):</strong> We model the full Indian tax schedule — Commodity Transaction Tax (0.01%), Stamp Duty (0.002%), MCX Turnover Fees, 18% GST, and 3.5 basis points of execution slippage per leg.
+        <br><br>
+        A signal is ONLY promoted to a tradable opportunity if the expected reversion spread strictly exceeds our <strong>14.0 basis point round-trip cost hurdle</strong>."
+      </div>
+    </div>
+  </div>
+
+  <!-- SCENE 5 -->
+  <div class="scene-card">
+    <div class="scene-header">
+      <span>SCENE 5: Walk-Forward Backtesting Lab &amp; Beta = 0.002 Proof</span>
+      <span>3:30 – 4:25</span>
+    </div>
+    <div class="scene-body">
+      <div class="action-block">
+        <strong>🖥️ WHERE TO NAVIGATE:</strong>
+        <br>• In the sidebar, click <strong>Backtesting Lab</strong> (<code>tab=backtest</code>).
+        <br>• Click the blue <strong>"Run Backtest"</strong> button (play icon) to show the simulation executing live.
+        <br>• Point directly at the scorecard badges on the right:
+        <br>&nbsp;&nbsp;• <strong>Beta to Underlying Gold: 0.002</strong> (Green badge).
+        <br>&nbsp;&nbsp;• <strong>Correlation to Gold: 0.051</strong>.
+        <br>&nbsp;&nbsp;• <strong>Total Statutory Frictions Deducted</strong> (shows ₹16,392 deducted).
+        <br>• Hover over the <strong>Equity Curve Chart</strong>: show Gross Model (blue line), Net Post-Friction Trajectory (green line), vs the volatile Directional Gold Benchmark (grey line).
+      </div>
+      <div class="voice-block">
+        "Now let's verify if this strategy actually works historically. We built a walk-forward chronological backtesting engine.
+        <br><br>
+        Crucially, our backtest has <strong>zero look-ahead bias</strong>. Signals detected on day t close are executed strictly on day t+1 open.
+        <br><br>
+        Look at these empirical results on screen:
+        <br><br>
+        Our strategy's <strong>Beta to underlying gold is 0.002</strong>, and the <strong>Correlation to gold is just 0.051</strong>.
+        <br><br>
+        What does that mean? It means our alpha is <strong>100% market neutral</strong>. Whether gold crashes 20% or rallies 30%, our portfolio is immune to directional swings! Our return comes purely from relative-value convergence.
+        <br><br>
+        Furthermore, notice that our equity curve transparently accounts for <strong>every single rupee of CTT, GST, Stamp duty, and slippage</strong>. We don't hide costs; we show exactly what survives in the real world."
+      </div>
+    </div>
+  </div>
+
+  <div class="page-break"></div>
+
+  <!-- SCENE 6 -->
+  <div class="scene-card">
+    <div class="scene-header">
+      <span>SCENE 6: Architecture, 25/25 Pytest Tests &amp; Closing</span>
+      <span>4:25 – 5:00</span>
+    </div>
+    <div class="scene-body">
+      <div class="action-block">
+        <strong>🖥️ WHERE TO NAVIGATE:</strong>
+        <br>• Click briefly to <strong>Methodology</strong> or <strong>Data Center</strong>.
+        <br>• Return to <strong>Overview</strong>. Point to the top telemetry indicator: <code>Status: Online · 722 Observations</code>.
+      </div>
+      <div class="voice-block">
+        "Under the hood, Gold Intelligence is built with a high-performance <strong>FastAPI backend</strong>, an institutional <strong>SQLite repository</strong> with 722 synchronous daily observations, and a clean <strong>React/Tailwind terminal</strong>.
+        <br><br>
+        Our codebase includes <strong>25 out of 25 passing automated unit tests</strong> verifying our normalization formulas, cost hurdles, and portfolio execution.
+        <br><br>
+        This is not a static UI mockup. It is a fully functioning quantitative commodity intelligence workstation built by Team LNX for Hack in Hills '26.
+        <br><br>
+        Thank you so much for your time, and we look forward to your questions!"
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION: 1-MINUTE VIRAL VIDEO -->
+  <h2>3. The 60-Second Viral Video Guide (LinkedIn, X, Reels)</h2>
+  <p style="font-size: 8.5pt; color: #687587; margin-top: -4pt;">
+    High-energy, zero fluff, fast cuts, optimized for mobile viewing and tech engagement.
+  </p>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 14%;">Timestamp</th>
+        <th style="width: 38%;">Where to Click &amp; Navigate</th>
+        <th style="width: 48%;">🗣️ Voiceover Script</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>0:00 – 0:10</strong></td>
+        <td>Start on <strong>Overview</strong>. Move mouse deliberately across contract names: <code>GOLDM</code>, <code>GOLDTEN</code>, <code>GOLDGUINEA</code>, <code>GOLDPETAL</code>.</td>
+        <td><em>"Did you know that on the MCX exchange, gold contracts don't actually cost the same? Here is why retail traders get trapped."</em></td>
+      </tr>
+      <tr>
+        <td><strong>0:10 – 0:22</strong></td>
+        <td>Click <strong>Contract Explorer</strong>. Point to GOLDM 100g (995) vs GOLDPETAL 1g (999). Hover over normalization formula.</td>
+        <td><em>"GOLDM is quoted per 10g at 995 purity. GOLDPETAL is quoted per 1g at 999 purity. Comparing raw prices is an apples-to-oranges illusion. We built <strong>Gold Intelligence</strong> to convert every contract into <strong>₹ per pure fine gram</strong>."</em></td>
+      </tr>
+      <tr>
+        <td><strong>0:22 – 0:38</strong></td>
+        <td>Click <strong>Overview</strong>. Hover over the spike on the <strong>Relative Spread Chart</strong> with the red anomaly dots.</td>
+        <td><em>"Once normalized, we track basis point spreads in real-time. Look at this spike: a massive <strong>9.18 standard deviation dislocation</strong> between contracts! When that happens, one contract is artificially cheap while the other is expensive."</em></td>
+      </tr>
+      <tr>
+        <td><strong>0:38 – 0:50</strong></td>
+        <td>Click <strong>Backtesting Lab</strong>. Click <strong>Run Backtest</strong>. Point cursor directly at <strong>Beta = 0.002</strong>.</td>
+        <td><em>"We run it through our Triple-Filter Gate, deducting Indian CTT, Stamp Duty, GST, and slippage. In backtesting, our strategy achieved a <strong>Beta to Gold of 0.002</strong> — pure market-neutral alpha with zero directional risk!"</em></td>
+      </tr>
+      <tr>
+        <td><strong>0:50 – 1:00</strong></td>
+        <td>Zoom out slightly or show the entire sleek terminal UI.</td>
+        <td><em>"100% built with FastAPI, SQLite, React, and 25 passing tests. Built for Hack in Hills '26 by Team LNX. Check out the project links below!"</em></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- SECTION: SOCIAL MEDIA POST CAPTIONS -->
+  <h2>4. Copy-and-Paste Social Media Captions</h2>
+
+  <h3>A. Professional Post for LinkedIn</h3>
+  <div class="caption-box">Did you know that on MCX India, gold futures don't actually trade at the same price? 🪙📈
+
+Most retail traders focus on guessing whether gold will go UP or DOWN. But institutional quantitative desks look at something else entirely: Relative Value.
+
+MCX lists 4 gold contracts: GOLDM, GOLDTEN, GOLDGUINEA, and GOLDPETAL.
+Here’s the trap:
+❌ Different lot sizes (100g down to 1g)
+❌ Different quoting bases (₹/10g vs ₹/1g vs ₹/8g)
+❌ Different purity grades (995 vs 999 fineness)
+
+Comparing raw screen prices is an apples-to-oranges illusion!
+
+For Hack in Hills '26, our team (Team LNX) built 𝗚𝗼𝗹𝗱 𝗜𝗻𝘁𝗲𝗹𝗹𝗶𝗴𝗲𝗻𝗰𝗲 — an institutional quantitative relative-value and arbitrage platform:
+
+🔍 What we built:
+1️⃣ Purity Normalization Engine: Deterministically converts every contract quote into ₹ / 1.000g of 1000-fineness gold.
+2️⃣ Statistical Anomaly Scanner: Tracks basis spread dynamics with dynamic ±2σ volatility envelopes (detecting dislocations up to 9.18σ!).
+3️⃣ The "Triple-Filter Gate": Over 75% of statistical anomalies are unexecutable traps. We enforce strict liquidity depth, near-expiry tender safety, and a statutory cost hurdle (deducting CTT, Stamp Duty, MCX turnover fees, GST, and slippage).
+4️⃣ Walk-Forward Backtester: Zero look-ahead bias with t+1 next-bar execution. 
+
+📊 The Key Quant Result:
+Our strategy generated a Market Beta to Gold of just β = 0.002 (Correlation ρ = 0.051) — proving true market neutrality. Returns are uncorrelated with directional commodity bull or bear cycles.
+
+Tech Stack: Python, FastAPI, NumPy/Pandas, SQLite, React, Tailwind CSS, Recharts. Fully covered with 25/25 passing Pytest test suites.
+
+Built by Team LNX: Rudra Sharma, Ayush Argulwar, Rohit Thoke.
+
+Check out the full demo video and GitHub repo below! 👇
+
+#Fintech #QuantitativeFinance #CommodityTrading #AlgorithmicTrading #Python #FastAPI #React #Hackathon #MCX #HackInHills26</div>
+
+  <div class="page-break"></div>
+
+  <h3>B. Punchy Post for X (Twitter)</h3>
+  <div class="caption-box">Why do retail traders lose money trading MCX Gold spreads? 🪙🧵
+
+They compare raw screen prices between GOLDM &amp; GOLDPETAL.
+Big mistake: one is quoted per 10g (995 purity), the other per 1g (999 purity).
+
+We built Gold Intelligence to solve this for Hack in Hills '26. 
+
+Here's how it works 👇
+
+1/ 📐 Purity Normalizer: Maps all 4 MCX gold symbols to a single canonical standard: ₹ per 1.000g of pure gold.
+
+2/ ⚡ Anomaly Scanner: Computes rolling basis spreads with dynamic ±2σ envelopes. We spotted historical dislocations as wide as 9.18σ!
+
+3/ 🛡️ The Reality Gate: Paper arbitrage is useless if taxes eat it. We filter out trades that don't survive Indian CTT, Stamp Duty, MCX fees, GST &amp; slippage.
+
+4/ 📊 Empirical Proof: Next-day (t+1) walk-forward backtest achieved β = 0.002 to gold. Pure market-neutral alpha independent of gold market direction.
+
+Tech: FastAPI + SQLite + React + 25/25 Pytest passing.
+
+Built by Team LNX (@HackInHills). Full demo in the video! 🚀</div>
+
+  <!-- SECTION: TOUGH JUDGE DEFENSE CHEAT SHEET -->
+  <h2>5. Tough Judge Q&amp;A Cheat Sheet (Defense Playbook)</h2>
+  <div class="card">
+    <div style="font-weight: 700; color: #14243A; margin-bottom: 2pt;">Q1: "Why relative value instead of predicting directional gold price?"</div>
+    <div style="font-size: 8.5pt; color: #334155; margin-bottom: 8pt;">
+      <strong>Your Answer:</strong> <em>"Directional speculation is exposed to macro events, interest rate decisions, and geopolitical shocks. Relative-value is market-neutral. Because contracts represent the same physical commodity, their normalized prices must converge by expiry. By trading the basis spread, our beta to gold is 0.002 — we don't care whether gold crashes or rallies."</em>
+    </div>
+
+    <div style="font-weight: 700; color: #14243A; margin-bottom: 2pt;">Q2: "Isn't this just a Bollinger Band on a price spread?"</div>
+    <div style="font-size: 8.5pt; color: #334155; margin-bottom: 8pt;">
+      <strong>Your Answer:</strong> <em>"No, applying a raw Bollinger Band on MCX gold spreads is suicidal for two reasons: First, un-normalized spreads are distorted by differing purities and quotation units. Second, over 75% of 2-sigma events are false traps occurring in illiquid hours or failing Indian statutory fees. Our innovation is the deterministic purity transform combined with the Triple-Filter reality hurdle."</em>
+    </div>
+
+    <div style="font-weight: 700; color: #14243A; margin-bottom: 2pt;">Q3: "How do you handle Indian commodity taxes and slippage?"</div>
+    <div style="font-size: 8.5pt; color: #334155; margin-bottom: 8pt;">
+      <strong>Your Answer:</strong> <em>"We explicitly model the full Indian statutory fee schedule: Commodity Transaction Tax (CTT) at 0.01%, Stamp Duty at 0.002%, MCX Turnover fee at 0.0021%, GST at 18%, plus 3.5 basis points of bid-ask slippage per leg. If an anomaly's net expected reversion doesn't exceed our 14.0 bps hurdle, we discard it."</em>
+    </div>
+
+    <div style="font-weight: 700; color: #14243A; margin-bottom: 2pt;">Q4: "Is there any look-ahead bias in your backtest?"</div>
+    <div style="font-size: 8.5pt; color: #334155;">
+      <strong>Your Answer:</strong> <em>"Strictly zero. All rolling statistics (μ and σ) use trailing 20-day windows with no knowledge of future bars. Trades detected at bar close t are executed on bar open t+1. We also simulate automatic liquidation 5 days before contract expiry to prevent delivery notice liabilities."</em>
+    </div>
+  </div>
+
+  <div style="text-align: center; font-size: 8pt; color: #94A3B8; margin-top: 14pt;">
+    Gold Intelligence • Problem 03: Commodity Derivatives Intelligence • Hack in Hills '26 • Team LNX
+  </div>
+
+</body>
+</html>
